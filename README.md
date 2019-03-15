@@ -18,7 +18,7 @@ Getting started
 
 1. Register and get an API-Key at https://providers.validators.com.
 2. The wallet should start by calling:
-   * [getStakingStatus](#get-staking-status) (to see if user already has staked with Validators)
+   * [getStakingStatus](#get-staking-status) (to see if user already has staked with validators.com)
    * If **yes**: then show the response data: Estimated Earnings etc.
    * If **no**: then show a button like **"Earn interest"** or **"Start delegating"** that takes the user to a register page.
       - Show a field that takes an email address.
@@ -36,7 +36,7 @@ Please add this to the http request headers:
 | **Header** | **Description**                                                                               |
 |------------|-----------------------------------------------------------------------------------------------|
 | api-key    | get your API-Key at https://providers.validators.com                                                                                  |
-| hash       | the request body signed by your API Secret using the HMAC-SHA512 method - see example |
+| hash       | the request body signed by your API Secret using the HMAC-SHA512 method - see examples below |
 
 
 ### Node.js authentication
@@ -47,13 +47,13 @@ Example of how to sign a request with node.js `crypto` module:
 const crypto = require("crypto");
 
 const message = {
-  "jsonrpc": "2.0",
-  "id": "test",
-  "method": "getMinAmount",
-  "params": {
-    "from": "ltc",
-    "to": "eth"
-  },
+   "jsonrpc": "2.0",
+   "id": "test",
+   "method": "getSomeMethod",
+   "params": {
+      "idSomething": "2333",
+      "valueSomething": "20"
+   }
 };
 
 const sign = crypto
@@ -148,7 +148,7 @@ Example Response:
       "address":{
          "accountUrl": "",
          "stakedAmount": "2000000",
-         "totalPaidAmount":"0",
+         "totalEarningsReceived":"0",
          "nextPayout":{
             "estimatedUtc": "2019-03-05T10:05:48",
             "estimatedAmount": "150000",
@@ -170,7 +170,7 @@ Returns an empty **"address"** if no staking has been registered.
 |----------|----------------------|-------------|
 | address.**accountUrl** | URI | The url where user can login using their crypto address |
 | address.**stakedAmount**   | microtezzies | the amount that are currently staked |
-| address.**totalPaidAmount** | microtezzies | the total amount paid out to date |
+| address.**totalEarningsReceived** | microtezzies | the total amount received to date |
 | address.nextPayout.**estimatedUtc** | utc datetime | estimated next payment date |
 | address.nextPayout.**estimatedAmount** | microtezzies |estimated next payout amount |
 | ~~address.nextPayout.**estimatePercentage**~~ | percentage | Not ready: estimated next percentage in the given cycle |
