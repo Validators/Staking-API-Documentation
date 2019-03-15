@@ -1,7 +1,7 @@
-Validators - Wallet Provider API Documentation
+Validators - Staking API Documentation
 =====================================
 
-Give your users a great experience with staking their cryptocurrencies with Validators through our Wallet Provider API - a whitelabel solution if you like.
+For Wallet Providers: Give your users a great experience with staking their cryptocurrencies with Validators through our Wallet Provider API.
 
 ### **Table of contents**:
 
@@ -16,7 +16,7 @@ Give your users a great experience with staking their cryptocurrencies with Vali
 Getting started
 ---------------
 
-1. Register and get an API-Key at https://providers.validators.com.
+1. Register as a Wallet Provider and get a free API-Key at https://providers.validators.com.
 2. The wallet should start by calling:
    * [getStakingStatus](#get-staking-status) (to see if user already has staked with validators.com)
    * If **yes**: then show the response data: Estimated Earnings etc.
@@ -36,7 +36,7 @@ Please add this to the http request headers:
 | **Header** | **Description**                                                                               |
 |------------|-----------------------------------------------------------------------------------------------|
 | api-key    | get your API-Key at https://providers.validators.com                                                                                  |
-| hash       | the request body signed by your API Secret using the HMAC-SHA512 method - see examples below |
+| hash       | the request body signed by your API Secret using the HMAC-SHA512 method - see authentication examples below |
 
 
 ### Node.js authentication
@@ -64,21 +64,13 @@ const sign = crypto
 
 ### Postman authentication
 
-Here is a small guide how to properly sign transaction with postman: 
+Here is a small guide how to create the transaction hash with postman: 
 
-1. Add new environment.
+1. Create new request. Select the `Headers` tab and add `ApiKey` and `Hash` headers. Use postman variable syntax for them in `Value` column. These variables will be updated for each request using the pre-request script.
 
-![Postman add new environment](https://i.imgur.com/JRKa2qb.png)
+![Postman headers setup](https://static.validators.com/images/Postman-Hmac-headers.png)
 
-2. Add `sign` and `api-key` variables to the new environment.
-
-![Postman manage environments setupt](https://i.imgur.com/P0sMNz7.png)
-
-3. Create new request. Being on the `Headers` tab add `sign` and `api-key` headers. Use postman variable syntax for them in `Value` column. These variables will be updated for each request using the pre-request script.
-
-![Postman headers setup](https://i.imgur.com/xfwxoQY.png)
-
-4. Paste the following code to the `Pre-request Script` tab for the request. Fill up the apiKey and secret variables. Be very careful not to accidentally share your secret.
+2. Paste the following code to the `Pre-request Script` tab for the request. Fill in the apiKey and apiSecret variables. Be very careful not to accidentally share your secret.
 
 ```js
 eval(postman.getGlobalVariable('crypto-js'))
@@ -94,7 +86,9 @@ postman.setEnvironmentVariable('apiKey', apiKey)
 postman.setEnvironmentVariable('hash', hash)
 ```
 
-![Postman pre-request script setup](https://i.imgur.com/tpiMzIu.png)
+![Postman pre-request script setup](https://static.validators.com/images/Postman-Hmac-configuration.png)
+
+3. Thats it. You are now ready to add a JSON-RPC Method call in the `Body` tab of the POST Request in Postman. 
 
 API RPC-Methods
 -----
