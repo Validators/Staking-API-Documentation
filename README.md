@@ -70,7 +70,7 @@ Here is a small guide how to create the transaction hash with postman:
 
 ![Postman headers setup](https://static.validators.com/images/Postman-Hmac-headers.png)
 
-2. Paste the following code to the `Pre-request Script` tab for the request. Fill in the apiKey and apiSecret variables. Be very careful not to accidentally share your secret.
+2. Paste the following code to the `Pre-request Script` tab for the request. Fill in the apiKey and apiSecret variables you got from https://providers.validators.com. Be very careful not to accidentally share your secret.
 
 ```js
 eval(postman.getGlobalVariable('crypto-js'))
@@ -88,7 +88,7 @@ postman.setEnvironmentVariable('hash', hash)
 
 ![Postman pre-request script setup](https://static.validators.com/images/Postman-Hmac-configuration.png)
 
-3. Thats it. You are now ready to add a JSON-RPC Method call in the `Body` tab of the POST Request in Postman. 
+3. Thats it. Now go to the `Body` tab and make your first JSON-RPC Method call from Postman. 
 
 API RPC-Methods
 -----
@@ -98,7 +98,7 @@ JSON-RPC Url: https://api.validators.com
 ### Types explained
 
 | Type | Description |
-|----------|----------------------|-------------|
+|----------|----------------------|
 | microtezzies | Is the lowest denominator of XTZ: 1.0 XTZ = 1,000,000 microtezzies. (6 zeroes). To get XTZ then multiply by 1,000,000 |
 | utc datetime | YYYY-MM-DDTHH:MM:SS example 2019-03-05T10:05:48 |
 
