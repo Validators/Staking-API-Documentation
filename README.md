@@ -8,10 +8,10 @@ For Wallet Providers: Give your users a great experience with staking their cryp
 * [Getting started](#getting-started)
 * [API-Authentication](#api-authentication)
 * [API-RPC Methods](#api-endpoints)
-  - [getStakingStatus](#getStakingStatus)
-  - [registerStaking](#register-staking)
-  - [updateStakingEmail](#update-staking-email)
-  - [getPayoutHistory](#getpayouthistory)
+  - [getStakingStatus](#method-getstakingstatus)
+  - [registerStaking](#method-registerStaking)
+  - [updateStakingEmail](#method-updateStakingEmail)
+  - [getPayoutHistory](#method-getPayoutHistory)
 
 Getting started
 ---------------
@@ -178,7 +178,7 @@ Returns an empty **"address"** if no staking has been registered.
 <p></p>
 
 
-#### Method: registerStaking
+### Method: registerStaking
 
 The first endpoint that needs to be called in order to register a stake with Validators. This call also returns the address that should be used when delegating funds to Validators. 
 
