@@ -8,7 +8,7 @@ For Wallet Providers: Give your users a great experience with staking their cryp
 * [Getting started](#getting-started)
 * [API-Authentication](#api-authentication)
 * [API-RPC Methods](#api-endpoints)
-  - [getStakingStatus](#get-staking-status)
+  - [getStakingStatus](#getStakingStatus)
   - [registerStaking](#register-staking)
   - [updateStakingEmail](#update-staking-email)
   - [getPayoutHistory](#getpayouthistory)
