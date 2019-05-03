@@ -202,7 +202,7 @@ Example request `Body`:
    "method": "registerStaking",
    "params": {
       "address": "tz1ZnxnLAm37HuVdSVMpArZLtcNMdYWV2Bfk",
-      "balance": "10.123456",
+      "balance": "10123456",
       "currency": "XTZ",
       "email":"example@gmail.com",
       "emailPayoutNotification": "true"
@@ -216,10 +216,10 @@ Example request `Body`:
 | Property | Required | Description |
 |----------|----------------------|-------------|
 | address     | required             | the tezos address of the user |
-| balance       | required             | the address balance in tezzies (tz) |
+| balance       | required             | the address balance in microtezzies |
 | currency       | required             | the crypto currency symbol |
-| email       | required             | email of the wallet user |
-| emailPayoutNotification | required | true or false - true means they will receive an email when there is a payout |
+| email       | optional             | email of the wallet user (null if empty) |
+| emailPayoutNotification | optional | true or false - true means they will receive an email when there is a payout |
 </details>
 <p></p>
 <p>For any questions please create an "issue" here or email us at: team@validators.com.
