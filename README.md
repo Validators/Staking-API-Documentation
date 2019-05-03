@@ -1,7 +1,12 @@
 Validators - Staking API Documentation
 =====================================
+API endpoint: https://api.validators.com
 
 For Wallet Providers: Give your users a great experience with staking their cryptocurrencies with Validators through our Wallet Provider API.
+
+Directly in the wallet they can view their: Current staking balance, Projected earnings, and Payout history.
+
+No need to goto any dashboard anymore.
 
 ### **Table of contents**:
 
@@ -17,14 +22,15 @@ Getting started
 ---------------
 
 1. Register as a Wallet Provider and get a free API-Key at https://providers.validators.com.
-2. The wallet should start by calling:
-   * [getStakingStatus](#get-staking-status) (to see if user already has staked with validators.com)
+2. For wallet integration: Start by calling:
+   * [getStakingStatus](#method-getstakingstatus) (to see if user already has staked with validators.com)
    * If **yes**: then show the response data: Estimated Earnings etc.
-   * If **no**: then show a button like **"Earn interest"** or **"Start delegating"** that takes the user to a register page.
-      - Show a field that takes an email address.
-      - Show a checkmark field with a "Terms of Service" link (Use the "general.termsUrl" from response data).  
-      - Then call the [registerStaking](#register-staking) method.
-3. Please open an issue in this repository if you have any questions.
+   * If **no**: then show a button like **"Earn interest"** or **"Start delegating/staking"** that takes the user to a register page.
+      - Show a field that takes an email address (optional).
+      - Show a checkmark field with a "Terms of Service" link (Use the "general.termsUrl" from response data).
+      - Then call the [registerStaking](#method-registerStaking) method.
+      - Finally, call the blockchain RPC-Endpoint to make the actual delegation/staking on the blockchain.
+3. Please open an issue in this repository or email us at team@validators.com if you have any questions.
 * * *
 
 API Authentication
@@ -107,7 +113,7 @@ JSON-RPC Url: https://api.validators.com
 
 The first endpoint that needs to be called (from a new wallet installation) in order to show if a user already has staked assets with Validators.
 
-Example Request: (With authentication headers as specified above)
+Example request `Body`:
 
 ```json
 {
@@ -187,7 +193,7 @@ The first endpoint that needs to be called in order to register a stake with Val
 
 >**Tezos:** Delegation (staking) call can be performed using [Eztz](https://github.com/TezTech/eztz/) javascript library by calling the [setDelegate](https://github.com/TezTech/eztz/blob/master/src/main.js#L684) method.
 
-Request example: (With authentication headers as specified above)
+Example request `Body`:
 
 ```json
 {
