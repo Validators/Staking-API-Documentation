@@ -4,7 +4,7 @@ API endpoint: https://api.validators.com
 
 For Wallet Providers: Give your users a great experience with staking their cryptocurrencies with Validators through our Wallet Provider API.
 
-Directly in the wallet crypto owners can view their: Current staking balance, Projected earnings, and Payout history.
+Directly in the wallet they can view their: Current staking balance, Projected earnings, and Payout history.
 
 No need to goto any dashboard anymore.
 
